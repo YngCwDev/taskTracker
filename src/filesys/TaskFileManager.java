@@ -11,13 +11,13 @@ public class TaskFileManager {
 
     public TaskFileManager(String fileName, String filePath) {
         this.fileName = fileName + ".csv";
-        this.filePath = filePath;
+        this.filePath = filePath + "\\";
         this.rootPath = "C:\\Task Tracker\\";
 
     }
 
     public void createFile() {
-        File newFile = new File("c");
+        File newFile = new File(rootPath+filePath+fileName);
         try {
             if (newFile.createNewFile()) {
                 System.out.println("File Created successfully" + newFile.getName());
