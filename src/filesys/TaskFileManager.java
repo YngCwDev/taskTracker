@@ -17,12 +17,16 @@ public class TaskFileManager {
     }
 
     public void createFile() {
-        File newFile = new File(rootPath+filePath+fileName);
+        File newFile = new File(rootPath + filePath + fileName);
         try {
-            if (newFile.createNewFile()) {
-                System.out.println("File Created successfully" + newFile.getName());
+            if (!(newFile.exists())) {
+                if (newFile.createNewFile()) {
+                    System.out.println("File Created successfully" + newFile.getName());
+                } else {
+                    System.out.println("Can't create the file!");
+                }
             } else {
-                System.out.println("Can't create the file!");
+                System.out.println("File already created!");
             }
 
         } catch (IOException e) {
@@ -66,7 +70,7 @@ public class TaskFileManager {
                     System.out.println("Drectory already created");
                 }
             }
-        } else  {
+        } else {
             System.out.println("They already exists!");
         }
 
