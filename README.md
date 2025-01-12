@@ -11,7 +11,7 @@ Task Tracker is a simple and efficient **Command Line Interface (CLI)** tool des
 ### 🔒 **User Management**
 - **Create Accounts**: Register with a username and password.
 - **Login/Logout**: Securely log in to manage your tasks.
-- **User Data Storage**: Each user has a dedicated JSON file to store their tasks.
+- **User Data Storage**: Each user has a dedicated CSV file to store their tasks.
 
 ### ✅ **Task Management**
 - **Create Tasks**: Add new tasks with descriptions.
@@ -24,7 +24,7 @@ Task Tracker is a simple and efficient **Command Line Interface (CLI)** tool des
     - **Done**
 
 ### 🗂 **Data Security**
-- User credentials and tasks are stored securely in JSON files.
+- User credentials and tasks are stored securely in csv files.
 - Passwords are hashed for security, ensuring safe data handling.
 
 ---
@@ -58,20 +58,20 @@ Use the **Tasks Manager** to perform various task-related actions:
 ### **User Data**
 Each user is represented in the system as:
 
-```json
+```csv
 {
   "id": 1,
   "username": "johndoe",
   "password": "hashed_password",
   "timestamp": "2025-01-09T12:00:00Z",
-  "fileById": "johndoe_tasks.json"
+  "fileById": "johndoe_tasks.csv"
 }
 ```
 
 ### **Task Data**
-Tasks are stored in a user-specific JSON file:
+Tasks are stored in a user-specific csv file:
 
-```json
+```csv
 [
   {
     "id": 1,
@@ -133,7 +133,7 @@ cd task-tracker
 
 ## **Contributing**
 
-Contributions are welcome! Feel free to fork this repository, make changes, and submit a pull request.
+Contributions are welcome! Feel free to fork this repository, make changes, comment,and submit a pull request, help me become a good developer.
 
 ---
 
