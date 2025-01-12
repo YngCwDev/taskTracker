@@ -80,8 +80,9 @@ public class TaskFileManager {
     public void writeANewLine(String newLine) {
 
         try {
-            FileWriter fWriter = new FileWriter(rootPath + filePath + fileName);
+            BufferedWriter fWriter = new BufferedWriter(new FileWriter(rootPath + filePath + fileName , true));
             fWriter.append(newLine);
+            fWriter.newLine();
             fWriter.close();
         } catch (IOException e) {
             System.out.println("Something is wrong!");

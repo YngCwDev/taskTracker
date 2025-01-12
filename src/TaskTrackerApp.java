@@ -11,7 +11,7 @@ public class TaskTrackerApp {
     public static void main(String[] args) {
 
         TaskFileManager file = new TaskFileManager("userid", "taskdb");
-        file.writeANewLine("id, desc, status, date");
-        file.writeANewLine("id, desc, status, date");
+        file.writeANewLine("id3, desc, status, date");
+
     }
 }
