@@ -1,13 +1,12 @@
 package filesys;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class TaskFileManager {
-    private final String fileName;
-    private final String filePath;
-    private final String rootPath;
+    private String fileName;
+    private String filePath;
+    private String rootPath;
 
     public TaskFileManager(String fileName, String filePath) {
         this.fileName = fileName + ".csv";
@@ -35,7 +34,7 @@ public class TaskFileManager {
     }
 
 
-    //Create a new directory if it does'nt exists;
+    //Create a new directory if it doesn't exist;
     public void createDirectory() {
         File newSubDir = new File(rootPath + filePath);
         ;
@@ -77,7 +76,8 @@ public class TaskFileManager {
     }
 
 
-    public void writeANewLine() {
+    //Append lines of string to the file;
+    public void writeANewLine(String Line) {
 
         try {
             FileWriter fWriter = new FileWriter(filePath + "\\" + fileName);
@@ -87,6 +87,26 @@ public class TaskFileManager {
             System.out.println("Something is wrong!");
         }
     }
+
+    //Read text files content line by line then return in an array
+    public ArrayList<String> readFile() {
+
+        ArrayList<String> fileLines = new ArrayList<>();
+
+        try {
+            BufferedReader fileReader = new BufferedReader(new FileReader(this.rootPath + this.filePath + this.fileName));
+            String line;
+            while ((line = fileReader.readLine()) != null) {
+
+                fileLines.add(line);
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return fileLines;
+    }
 }
+
 
 
