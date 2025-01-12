@@ -96,8 +96,7 @@ Tasks are stored in a user-specific csv file:
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/task-tracker.git
-cd task-tracker
+git clone https://github.com/YngCwDev/taskTracker.git
 ```
 ## **Command Reference**
 
