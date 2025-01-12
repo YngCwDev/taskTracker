@@ -4,9 +4,9 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class TaskFileManager {
-    private String fileName;
-    private String filePath;
-    private String rootPath;
+    private  String fileName;
+    private  String filePath;
+    private  String rootPath;
 
     public TaskFileManager(String fileName, String filePath) {
         this.fileName = fileName + ".csv";
@@ -20,7 +20,7 @@ public class TaskFileManager {
         try {
             if (!(newFile.exists())) {
                 if (newFile.createNewFile()) {
-                    System.out.println("File Created successfully" + newFile.getName());
+                    System.out.println("File Created successfully");
                 } else {
                     System.out.println("Can't create the file!");
                 }
@@ -77,11 +77,11 @@ public class TaskFileManager {
 
 
     //Append lines of string to the file;
-    public void writeANewLine(String Line) {
+    public void writeANewLine(String newLine) {
 
         try {
-            FileWriter fWriter = new FileWriter(filePath + "\\" + fileName);
-            fWriter.append("Hello");
+            FileWriter fWriter = new FileWriter(rootPath + filePath + fileName);
+            fWriter.append(newLine);
             fWriter.close();
         } catch (IOException e) {
             System.out.println("Something is wrong!");
