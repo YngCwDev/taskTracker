@@ -1,3 +1,4 @@
+import auth.User;
 import filesys.TaskFileManager;
 
 
@@ -6,7 +7,8 @@ public class TaskTrackerApp {
 
         TaskFileManager file = new TaskFileManager("auth", "taskdb");
 
-        System.out.println(file.checkFileExists());
+        User user = new User("Alcides", "1234");
+        user.createUser();
     }
 
 }

@@ -28,6 +28,10 @@ public class TaskFileManager {
     public void createFile() {
         File newFile = new File(this.file);
         try {
+            //This call make sure that the app directory exist before create any file, sacou?
+            createDirectory();
+
+            //And then it runs this logic...
             if (!(newFile.exists())) {
                 if (newFile.createNewFile()) {
                     System.out.println("File Created successfully");
@@ -150,6 +154,7 @@ public class TaskFileManager {
 
     }
 
+
     public void showFileList() {
         File file = new File(rootPath + filePath);
 
@@ -157,7 +162,6 @@ public class TaskFileManager {
 
     } public void showFileList(String newPath) {
         File file = new File(newPath);
-
         System.out.println(Arrays.toString(file.list()));
 
     }
