@@ -13,40 +13,39 @@ public class User {
         this.userId = "1abcD";
         this.username = name;
         this.password = password;
-        this.formatedUserData = this.userId + ", " + username + ", " + password;
+        this.formatedUserData = this.userId + "," + username + "," + password;
         this.usersFile = new TaskFileManager("auth", "auth");
     }
 
-    public void login() {
+    public boolean login() {
         boolean logged = false;
         if (!(this.usersFile.checkFileExists())) {
             this.usersFile.createFile();
         }
         if (userExist()) {
-            System.out.println("You logged in!");
+            System.out.println("Welcome" + this.username + "\nYou logged in!");
             logged = true;
         } else {
             createUser();
         }
+        return logged;
     }
 
-    public void createUser(){
+    public void createUser() {
         usersFile.writeANewLine(this.formatedUserData);
     }
 
     public boolean userExist() {
         boolean exists = false;
         for (String line : usersFile.readFile()) {
-            String[] user = line.split(",");
-            String fileUsername = user[1];
-            String filePassword = user[2];
+            String[] userDetail = line.split(",");
+            String fileUsername = userDetail[1];
+            String filePassword = userDetail[2];
             if (this.username.equals(fileUsername) && this.password.equals(filePassword)) {
                 exists = true;
                 break;
             }
-
         }
-
         return exists;
     }
 
