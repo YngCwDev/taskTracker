@@ -18,23 +18,31 @@ public class User {
     }
 
     public void login() {
+        boolean logged = false;
         if (!(this.usersFile.checkFileExists())) {
             this.usersFile.createFile();
         }
-        if(userExist()){
+        if (userExist()) {
             System.out.println("You logged in!");
+            logged = true;
+        } else {
+            createUser();
         }
+    }
 
+    public void createUser(){
+        usersFile.writeANewLine(this.formatedUserData);
     }
 
     public boolean userExist() {
         boolean exists = false;
-        for(String line : usersFile.readFile()){
+        for (String line : usersFile.readFile()) {
             String[] user = line.split(",");
             String fileUsername = user[1];
             String filePassword = user[2];
-            if(this.username.equals(fileUsername) && this.password.equals(filePassword)){
+            if (this.username.equals(fileUsername) && this.password.equals(filePassword)) {
                 exists = true;
+                break;
             }
 
         }
@@ -42,6 +50,13 @@ public class User {
         return exists;
     }
 
+    public String getUserName() {
+        return username;
+    }
 
 
+}
+
+class TaskCypher {
+    //soon
 }

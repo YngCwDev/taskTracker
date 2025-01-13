@@ -8,7 +8,7 @@ public class TaskTrackerApp {
         TaskFileManager file = new TaskFileManager("auth", "taskdb");
 
         User user = new User("Alcides", "1234");
-        user.createUser();
+        user.login();
     }
 
 }
