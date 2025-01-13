@@ -12,10 +12,13 @@ public class TaskManager {
         this.taskId = "xxxx";
         this.description = description;
         this.status = status;
-        this.createdAt = getCreatedAt();
-        this.updatedAt = getUpdatedAt();
+        this.createdAt = "";
+        this.updatedAt = "";
     }
 
+    public void newTask(){
+
+    }
 
     public String getCreatedAt() {
         Date date = new Date();
@@ -24,6 +27,8 @@ public class TaskManager {
     }
 
     public String getUpdatedAt() {
-        return "";
+        Date date = new Date();
+        Timestamp time = new Timestamp(date.getTime());
+        return String.valueOf(time);
     }
 }
