@@ -1,19 +1,28 @@
 package filesys;
 
 import java.io.*;
+
 import java.util.ArrayList;
 
 public class TaskFileManager {
-    private  String fileName;
-    private  String filePath;
-    private  String rootPath;
+    private String fileName;
+    private String filePath;
+    private String rootPath;
+    private String file;
+
+
+    public TaskFileManager() {
+        return;
+    }
 
     public TaskFileManager(String fileName, String filePath) {
         this.fileName = fileName + ".csv";
         this.filePath = filePath + "\\";
         this.rootPath = "C:\\Task Tracker\\";
+        this.file = this.rootPath + this.filePath + this.fileName;
 
     }
+
 
     public void createFile() {
         File newFile = new File(rootPath + filePath + fileName);
@@ -34,7 +43,7 @@ public class TaskFileManager {
     }
 
 
-    //Create a new directory if it doesn't exist;
+    //Create a new app directories if they dont  exist;
     public void createDirectory() {
         File newSubDir = new File(rootPath + filePath);
         ;
@@ -80,7 +89,7 @@ public class TaskFileManager {
     public void writeANewLine(String newLine) {
 
         try {
-            BufferedWriter fWriter = new BufferedWriter(new FileWriter(rootPath + filePath + fileName , true));
+            BufferedWriter fWriter = new BufferedWriter(new FileWriter(this.file, true));
             fWriter.append(newLine);
             fWriter.newLine();
             fWriter.close();
@@ -89,13 +98,37 @@ public class TaskFileManager {
         }
     }
 
+    public void updateFileLine(String updatedLine) {
+        ArrayList<String> currentFileLines = this.readFile();
+
+        try {
+            BufferedWriter fWriter = new BufferedWriter(new FileWriter(this.file));
+            for (String line : currentFileLines) {
+                String[] lineId = line.split(",");
+                String[] updateLineId = updatedLine.split(",");
+                if (lineId[0].equals(updateLineId[0])) {
+                    line = updatedLine;
+                }
+                fWriter.write("");
+                writeANewLine(line)all;
+            }
+            fWriter.close();
+
+        } catch (IOException e) {
+            System.out.println("Something is wrong writing update!" + e.getMessage());
+        }
+
+
+    }
+
+
     //Read text files content line by line then return in an array
     public ArrayList<String> readFile() {
 
         ArrayList<String> fileLines = new ArrayList<>();
 
         try {
-            BufferedReader fileReader = new BufferedReader(new FileReader(this.rootPath + this.filePath + this.fileName));
+            BufferedReader fileReader = new BufferedReader(new FileReader(this.file));
             String line;
             while ((line = fileReader.readLine()) != null) {
 
