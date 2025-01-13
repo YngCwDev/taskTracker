@@ -3,6 +3,7 @@ package filesys;
 import java.io.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TaskFileManager {
     private String fileName;
@@ -46,10 +47,10 @@ public class TaskFileManager {
     //Create a new app directories if they don't  exist;
     public void createDirectory() {
         File newSubDir = new File(rootPath + filePath);
-        ;
+
         File rootDir = new File(this.rootPath);
 
-        //Create  app root directories if they don't  exists,
+        //Create  app root directories if they don't  exist,
         if (!(newSubDir.exists() && rootDir.exists())) {
             if (rootDir.exists()) {
 
@@ -139,6 +140,21 @@ public class TaskFileManager {
             System.out.println(e.getMessage());
         }
         return fileLines;
+    }
+
+
+    public boolean checkFileExists() {
+        File file = new File(this.file);
+
+        return file.exists();
+
+    }
+
+    public void showFileList() {
+        File file = new File(rootPath + filePath);
+
+        System.out.println(Arrays.toString(file.list()));
+
     }
 }
 

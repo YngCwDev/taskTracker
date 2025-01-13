@@ -4,10 +4,10 @@ import filesys.TaskFileManager;
 public class TaskTrackerApp {
     public static void main(String[] args) {
 
-        TaskFileManager file = new TaskFileManager("userid", "taskdb");
+        TaskFileManager file = new TaskFileManager("auth", "taskdb");
 
-        file.updateFileLine("id5, anything different, status, date");
-
+        System.out.println(file.checkFileExists());
+        file.showFileList();
     }
 
 }
