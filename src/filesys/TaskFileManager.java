@@ -25,7 +25,7 @@ public class TaskFileManager {
 
 
     public void createFile() {
-        File newFile = new File(rootPath + filePath + fileName);
+        File newFile = new File(this.file);
         try {
             if (!(newFile.exists())) {
                 if (newFile.createNewFile()) {
@@ -94,7 +94,7 @@ public class TaskFileManager {
             fWriter.newLine();
             fWriter.close();
         } catch (IOException e) {
-            System.out.println("Something is wrong!");
+            System.out.println("Something wrong  writing the  line!");
         }
     }
 
@@ -110,7 +110,7 @@ public class TaskFileManager {
                     line = updatedLine;
                 }
                 fWriter.write("");
-                writeANewLine(line)all;
+                writeANewLine(line);
             }
             fWriter.close();
 
