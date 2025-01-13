@@ -8,6 +8,7 @@ public class User {
     private String password;
     private String formatedUserData;
     private TaskFileManager usersFile;
+    private Boolean logged;
 
     public User(String name, String password) {
         this.userId = "1abcD";
@@ -17,22 +18,21 @@ public class User {
         this.usersFile = new TaskFileManager("auth", "auth");
     }
 
-    public boolean login() {
-        boolean logged = false;
+    public void login() {
+        this.logged = false;
         if (!(this.usersFile.checkFileExists())) {
             this.usersFile.createFile();
         }
         if (userExist()) {
             System.out.println("Welcome" + this.username + "\nYou logged in!");
-            logged = true;
-        } else {
-            createUser();
+            this.logged = true;
         }
-        return logged;
     }
 
     public void createUser() {
-        usersFile.writeANewLine(this.formatedUserData);
+        if(!logged){
+            usersFile.writeANewLine(this.formatedUserData);
+        }
     }
 
     public boolean userExist() {
@@ -52,7 +52,9 @@ public class User {
     public String getUserName() {
         return username;
     }
-
+    public String logOut(){
+        return "logout";
+    }
 
 }
 
