@@ -155,6 +155,11 @@ public class TaskFileManager {
 
         System.out.println(Arrays.toString(file.list()));
 
+    } public void showFileList(String newPath) {
+        File file = new File(newPath);
+
+        System.out.println(Arrays.toString(file.list()));
+
     }
 }
 

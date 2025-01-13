@@ -7,7 +7,6 @@ public class TaskTrackerApp {
         TaskFileManager file = new TaskFileManager("auth", "taskdb");
 
         System.out.println(file.checkFileExists());
-        file.showFileList();
     }
 
 }
