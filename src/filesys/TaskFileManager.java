@@ -11,9 +11,9 @@ public class TaskFileManager {
     private String file;
 
 
-    public TaskFileManager() {
+   /* public TaskFileManager() {
         return;
-    }
+    }*/
 
     public TaskFileManager(String fileName, String filePath) {
         this.fileName = fileName + ".csv";
@@ -43,7 +43,7 @@ public class TaskFileManager {
     }
 
 
-    //Create a new app directories if they dont  exist;
+    //Create a new app directories if they don't  exist;
     public void createDirectory() {
         File newSubDir = new File(rootPath + filePath);
         ;
