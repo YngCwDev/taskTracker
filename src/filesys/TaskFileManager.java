@@ -84,7 +84,7 @@ public class TaskFileManager {
                 }
             }
         } else {
-            System.out.println("They already exists!");
+            System.out.println("RootDir and SubDirs already exists!");
         }
 
     }
