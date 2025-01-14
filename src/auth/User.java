@@ -10,6 +10,9 @@ public class User {
     private TaskFileManager usersFile;
     private Boolean logged;
 
+    public User(){
+        ;
+    }
     public User(String name, String password) {
         this.userId = "1abcD";
         this.username = name;
@@ -17,6 +20,7 @@ public class User {
         this.formatedUserData = this.userId + "," + username + "," + password;
         this.usersFile = new TaskFileManager("auth", "auth");
     }
+
 
     public void login() {
         this.logged = false;

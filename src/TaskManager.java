@@ -1,3 +1,6 @@
+import auth.User;
+import filesys.TaskFileManager;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -8,16 +11,22 @@ public class TaskManager {
     private String createdAt;
     private String updatedAt;
 
-    public TaskManager(String description, String status) {
+    private TaskFileManager taskFile;
+    private User user;
+
+
+    public TaskManager(String description, String status, User user, TaskFileManager taskFile) {
         this.taskId = "xxxx";
         this.description = description;
         this.status = status;
         this.createdAt = "";
         this.updatedAt = "";
+        this.taskFile = taskFile;
+        this.user = user;
     }
 
-    public void newTask(){
-
+    public void newTask() {
+        taskFile.createFile();
     }
 
     public String getCreatedAt() {
