@@ -31,3 +31,6 @@ bin/
 ### PATHS ##
 /auth/
 /taskdb/
+
+### FILES ##
+*.class
