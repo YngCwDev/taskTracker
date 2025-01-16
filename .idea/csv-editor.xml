@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="C:\Task Tracker\taskdb\Alcy.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\README.md">
           <value>
             <Attribute>

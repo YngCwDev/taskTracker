@@ -10,9 +10,10 @@ public class User {
     private TaskFileManager usersFile;
     private Boolean logged;
 
-    public User(){
+    public User() {
         ;
     }
+
     public User(String name, String password) {
         this.userId = "1abcD";
         this.username = name;
@@ -20,7 +21,6 @@ public class User {
         this.formatedUserData = this.userId + "," + username + "," + password;
         this.usersFile = new TaskFileManager("auth", "auth");
     }
-
 
     public void login() {
         this.logged = false;
@@ -34,7 +34,7 @@ public class User {
     }
 
     public void createUser() {
-        if(!logged){
+        if (!logged) {
             usersFile.writeANewLine(this.formatedUserData);
         }
     }
@@ -56,8 +56,9 @@ public class User {
     public String getUserName() {
         return username;
     }
-    public String logOut(){
-        return "logout";
+
+    public void logOut() {
+        this.logged = false;
     }
 
 }

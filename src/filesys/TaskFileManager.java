@@ -134,11 +134,9 @@ public class TaskFileManager {
 
         try {
             BufferedReader fileReader = new BufferedReader(new FileReader(this.file));
-            String line;
-            while ((line = fileReader.readLine()) != null) {
-
+            String line = fileReader.readLine();
+            while (line != null) {
                 fileLines.add(line);
-
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -160,7 +158,9 @@ public class TaskFileManager {
 
         System.out.println(Arrays.toString(file.list()));
 
-    } public void showFileList(String newPath) {
+    }
+
+    public void showFileList(String newPath) {
         File file = new File(newPath);
         System.out.println(Arrays.toString(file.list()));
 
